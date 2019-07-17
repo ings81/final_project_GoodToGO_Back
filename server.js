@@ -35,10 +35,9 @@ app.use("/auth", authRoute);
 //api routes
 
 const userAPI = require("./api/user");
-const articleAPI = require("./api/article");
+const articleAPI = require("./api/menu");
 app.use("/api/users", userAPI.router);
-
-app.use("/api/articles", articleAPI.router);
+app.use("/api/menu", articleAPI.router);
 
 app.listen(process.env.PORT, () => {
   console.log("App hosted on: ", process.env.SITE_URL);
