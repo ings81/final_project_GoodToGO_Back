@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 const getAll = () => User.find();
 const getOne = id => User.findById(id);
-const updateOne = (id, data) => User.findByIdAndUpdate(id, data);
+const updateOne = (id, data) => User.findByIdAndUpdate(id, data, { new: true });
 const deleteOne = id => User.findByIdAndDelete(id);
 const create = data => User.create(data);
 
@@ -39,7 +39,7 @@ router.delete("/:id", (req, res) => {
 });
 
 router.patch("/:id", (req, res) => {
-  updateOne(req.params.id).then(updatedUser =>
+  updateOne(req.params.id, req.body).then(updatedUser =>
     res.status(200).send(updatedUser)
   );
 });

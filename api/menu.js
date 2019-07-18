@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const Article = require("../models/Menu");
+const Menu = require("../models/Menu");
 
 const getAll = () => Menu.find();
 const getOne = id => Menu.findById(id);
