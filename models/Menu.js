@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const menuSchema = new Schema({
   title: String,
-  Image: [{ type: String }],
-  description: String,
-  ingredients: String
+  Image: [{}],
+  ingredients: String,
+  description: String
 });
 
 const menuModel = mongoose.model("Menu", menuSchema);
