@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const menuSchema = new Schema({
-  Title: String,
-  Image: [{ type: String }],
-  Items: [{ type: String }],
-  Price: Number
+  title: String,
+  image: [{ type: String }],
+  items: [{ type: Schema.Types.ObjectId, ref: "Item" }],
+  price: Number,
+  description: String
 });
 
 const menuModel = mongoose.model("Menu", menuSchema);
