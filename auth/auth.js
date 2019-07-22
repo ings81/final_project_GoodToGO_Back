@@ -7,9 +7,8 @@ const cloudinaryUploader = require("../config/cloudinary.js");
 
 router.post(
   "/signup",
-  cloudinaryUploader.single("avatar"),
+
   (req, res, next) => {
-    const avatar = req.file.secure_url;
     const firstname = req.body.firstname;
     const lastname = req.body.lastname;
     const email = req.body.email;
@@ -47,8 +46,7 @@ router.post(
         firstname,
         lastname,
         password: hashPass,
-        email: email,
-        avatar: avatar
+        email: email
       });
 
       aNewUser.save(err => {

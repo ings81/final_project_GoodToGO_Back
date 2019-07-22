@@ -24,10 +24,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/test", (req, res) => {
-  res.send("server online");
-});
-
 //authenticating route
 const authRoute = require("./auth/auth");
 app.use("/auth", authRoute);
