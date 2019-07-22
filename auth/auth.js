@@ -3,7 +3,6 @@ const router = new express.Router();
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const User = require("../models/User");
-const cloudinaryUploader = require("../config/cloudinary.js");
 
 router.post(
   "/signup",
@@ -70,8 +69,7 @@ router.post(
 
           const user = {
             firstname: aNewUser.firstname,
-            lastname: aNewUser.lastname,
-            avatar: aNewUser.avatar
+            lastname: aNewUser.lastname
           };
 
           res.status(200).json(user);
