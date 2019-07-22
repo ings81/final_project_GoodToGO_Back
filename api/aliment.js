@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   getOne(req.params.id)
-    .then(alimen => {
+    .then(aliment => {
       res.status(200).send(aliment);
     })
     .catch(error => res.status(500).send("Something went wrong"));
