@@ -8,8 +8,12 @@ const passport = require("passport");
 const app = express();
 const cors = require("cors");
 
-const corsOptions = { origin: process.env.FRONTEND_URL };
-app.use(cors());
+const corsOptions = {
+  credentials: true,
+  origin: process.env.FRONTEND_URL
+};
+
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());
