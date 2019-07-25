@@ -29,15 +29,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //authenticating route
+const userAPI = require("./api/user");
+const articleAPI = require("./api/menu");
+const alimentAPI = require("./api/aliment");
+const commandAPI = require("./api/command");
 const authRoute = require("./auth/auth");
 app.use("/auth", authRoute);
 
 //api routes
 
-const userAPI = require("./api/user");
-const articleAPI = require("./api/menu");
-const alimentAPI = require("./api/aliment");
-const commandAPI = require("./api/command");
 app.use("/api/users", userAPI.router);
 app.use("/api/menu", articleAPI.router);
 app.use("/api/aliments", alimentAPI.router);

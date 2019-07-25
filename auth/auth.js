@@ -116,6 +116,7 @@ router.post("/signout", (req, res, next) => {
 });
 
 router.get("/loggedin", (req, res, next) => {
+  console.log("ici dans loggged in");
   // req.isAuthenticated() is defined by passport
   if (req.isAuthenticated()) {
     //   const user = {
