@@ -102,14 +102,14 @@ router.post("/signin", (req, res, next) => {
         res.status(500).json({ message: "Session save went bad." });
         return;
       }
-
+      console.log("ici");
       // We are now logged in (that's why we can also send req.user)
-      res.status(200).json(theUser);
+      res.status(200).json({ loginStatus: true, user: theUser });
     });
   })(req, res, next);
 });
 
-router.post("/logout", (req, res, next) => {
+router.post("/signout", (req, res, next) => {
   // req.logout() is defined by passport
   req.logout();
   res.status(200).json({ message: "Log out success!" });
@@ -124,7 +124,7 @@ router.get("/loggedin", (req, res, next) => {
     //       avatar = req.user.avatar
     //   }
 
-    res.status(200).json(req.user);
+    res.status(200).json({ loginStatus: true, user: req.user });
     return;
   }
   res.status(403).json({ message: "Unauthorized" });
