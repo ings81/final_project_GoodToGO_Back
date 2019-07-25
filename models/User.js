@@ -6,6 +6,7 @@ const userSchema = new Schema({
   lastname: String,
   email: String,
   password: String,
+
   commande_en_cours: [{ type: Schema.Types.ObjectId, ref: "Command" }],
   purchases: [{ type: Schema.Types.ObjectId, ref: "Command" }]
 });
