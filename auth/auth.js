@@ -109,7 +109,7 @@ router.post("/signin", (req, res, next) => {
   })(req, res, next);
 });
 
-router.post("/logout", (req, res, next) => {
+router.post("/signout", (req, res, next) => {
   // req.logout() is defined by passport
   req.logout();
   res.status(200).json({ message: "Log out success!" });
@@ -117,6 +117,7 @@ router.post("/logout", (req, res, next) => {
 
 router.get("/loggedin", (req, res, next) => {
   // req.isAuthenticated() is defined by passport
+  console.log("pppp");
   if (req.isAuthenticated()) {
     //   const user = {
     //       firstname: req.user.firstname,
@@ -124,9 +125,13 @@ router.get("/loggedin", (req, res, next) => {
     //       avatar = req.user.avatar
     //   }
 
-    res.status(200).json(req.user);
+    res.status(200).json({
+      loginStatus: true,
+      user: req.user
+    });
     return;
   }
+
   res.status(403).json({ message: "Unauthorized" });
 });
 
