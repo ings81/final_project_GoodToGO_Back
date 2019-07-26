@@ -117,6 +117,7 @@ router.post("/signout", (req, res, next) => {
 
 router.get("/loggedin", (req, res, next) => {
   console.log("ici dans loggged in");
+
   // req.isAuthenticated() is defined by passport
   console.log("pppp");
   if (req.isAuthenticated()) {
@@ -127,7 +128,6 @@ router.get("/loggedin", (req, res, next) => {
     //   }
 
     res.status(200).json({ loginStatus: true, user: req.user });
-
     return;
   }
 
